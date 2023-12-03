@@ -1,0 +1,430 @@
+/*----------------------------------------------------------------------------*/
+/*-----------------------Preformateo del documento----------------------------*/
+/*----------------------Clases o elementos generales--------------------------*/
+/*----------------------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rodies','Gloria Hallelujah',sans-serif;
+}
+
+:root {
+    --negro-rico: #011627;
+    --xanthous: #E6AF2E;
+    --rojo-imperial: #FF0035;
+    --lavender-web: #EEEEFF;
+    --negro-rico-transparente: #011627A0;
+    --negro-eeire: #1E1E1E;
+    --negro-eeire-transparentes: #1e1e1e97;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* 
+    * Creamos un ámbito de aplicación 
+    * para la superposición de elementos
+    */
+    position: relative;
+
+    /* Evitamos que haya scroll en la página */
+    overflow: hidden;
+
+    /* Añadimos y ajustamos el pattern */
+    background: url("../images/pattern-3.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    & .invisible {
+        display: none;
+    }
+    
+    & .visible {
+        display: flex;
+    }
+    
+    /* Iconos de bandera y bomba */
+    & i {
+        width: 100%;
+        height: 100%;
+        font-size: 30pt;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        color: var(--negro-eeire);
+    }
+    
+    /* Icono bandera */
+    & .bxs-flag-alt {
+        z-index: 2;
+        font-size: 30pt;
+        color: black;
+    }
+    
+    /* Bomba pulsada */
+    & .bx.bxs-bomb.bomba-pulsada {
+        width: 100%;
+        height: 100%;
+        background-color: var(--rojo-imperial);
+    }
+
+    & h1 {
+        width: 80%;
+        font-family: 'Bungee Spice', sans-serif;
+        font-size: 36pt;
+        text-align: start;
+    }
+
+    & .root {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------------Cabecera-----------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+header {
+    width: 100%;
+    height: 5em;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--negro-eeire);
+
+    & .box-icon {
+        width: 10%;
+        & img {
+            width: 60px;
+            padding: 5%;
+            border-radius: 50%;
+            box-shadow: 0px 0px 15px var(--lavender-web), 0px 0px 15px var(--lavender-web);
+        }
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*--------------------------Cuerpo de la página-------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+main {
+    width: 100%;
+    /*
+     * Calculamos la altura que hay para el cuerpo
+     * restando el tamaño de la cabecera menos el cuerpo
+     * y el resultado menos un 10% del footer.
+    */
+    height: calc(100% - 10em);
+    margin-top: 4%;
+
+    background-image: url("../images/cuardeno-transformado.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & article {
+        width: 50%;
+        height: 100%;
+        padding: 2%;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*--------------------------Pantalla Intrucciones-----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+.pantalla-intrucciones {
+    width: 50%;
+    height: 100%;
+    padding-left: 7%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    & .tiempo-de-partida {
+        width: 50%;
+        height: 10%;
+        padding: 1%;
+        background-color: var(--lavender-web);
+        border: 3px solid var(--negro-rico);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 10px;
+
+        & i {
+            width: 30%;
+            color: var(--negro-rico);
+        }
+        & p {
+            width: 70%;
+        }
+    }
+
+    & .intrucciones-partida {
+        width: 100%;
+        height: 90%;
+        padding: 1%;
+        border-radius: 20px;
+
+        & h1 {
+            font-size: 40px;
+        }
+
+        & hr {
+            width: 80%;
+            height: 3px;
+            background-color: var(--lavender-web);
+            border: none;
+        }
+
+        & article {
+            width: 90%;
+            height: 80%;
+            color: var(--lavender-web);
+            font-size: 12pt;
+            & p {
+                margin-bottom: 3%;
+            }
+
+            & fieldset {
+                padding: 1%;
+                
+                & ul {
+                    list-style: none;
+                    color: var(--rojo-imperial);
+                }
+
+                &>legend {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*---------------------------Pantalla Buscaminas------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+.pantalla-buscaminas {
+
+    width: 50%;
+    height: 100%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+
+    & section:nth-child(1) {
+        width: 50%;
+        height: 10%;
+        border: 3px solid var(--negro-eeire);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        & article {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+
+    & section:nth-child(2) {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*-----------------------------Pie de página----------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+footer {
+    width: 100%;
+    height: 8%;
+    background-color: var(--negro-rico);
+}
+
+/*----------------------------------------------------------------------------*/
+/*--------------------------Pantalla final derrota----------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+#pantalla-final {
+    width: 100%;
+    height: 100%;
+
+    /* Ámbito de superposición */
+    position: absolute;
+    z-index: 4;
+
+    /* Forma de organización de elementos */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    /* Estilos de fuentes */
+    color: rgb(255, 115, 0);
+    font-family: sans-serif;
+    font-size: 50pt;
+
+    /*  Pattern */
+    background-image: url("../images/posit.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    /* Animación */
+    animation: aparece_desaparece 1.3s ease-in 1 normal forwards;
+
+    & h1 {
+        width: 40%;
+        background-color: rgba(240, 248, 255, 0.650);
+        border-radius: 10px;
+        padding: 2%;
+        text-align: center;
+        font-family: 'Bungee Spice';
+    }
+    
+    /* Reset Button */
+    & button {
+        width: 20%;
+        height: 70px;
+        font-size: 20pt;
+        text-transform: uppercase;
+        font-weight: bold;
+        background-color: red;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s all ease-in;
+    }
+    
+    & button:hover {
+        transition: 0.3s all ease-in;
+        background-color: white;
+        color: red;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*-----------------------Plantilla Buscaminias--------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+.plantilla-buscaminas {
+    width: 80%;
+    height: 80%;
+
+    &>tr>td {
+        width: 1%;
+        height: 1%;
+        position: relative;
+        color: var(--negro-eeire);
+        font-size: 14px;
+        font-weight: bold;
+        font-family: sans-serif;
+        border: 3px solid var(--negro-eeire);
+        aspect-ratio: 2/1;
+        & i {
+            color: var(--negro-eeire);
+            font-size: 14px;
+        }
+    }
+    
+    &>tr>td>button {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        border: none;
+        background-color: var(--negro-eeire);
+        cursor: pointer;
+        transition: 0.1s all linear;
+        & i {
+            color: var(--lavender-web);
+            font-size: 14px;
+        }
+    }
+    
+    &>tr>td>button:hover {
+        background-color: var(--xanthous);
+    }
+    
+    &>tr>td>p {
+        width: 90%;
+        height: 15px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*-----------------------------Fuentes usadas---------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: "Bungee Spice";
+    src: url("../fonts/Bungee_Spice/BungeeSpice-Regular.ttf") format('truetype');
+}
+
+
+@font-face {
+    font-family: "Gloria Halleluja";
+    src: url("../fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Rodies";
+    src: url("../fonts/Rowdies/Rowdies-Regular.ttf") format("truetype");
+}
+
+/*----------------------------------------------------------------------------*/
+/*-----------------------------Media querys-----------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+@media screen and (max-width:1000px) {
+    main {
+        flex-direction: column-reverse;
+    }
+
+    .pantalla-buscaminas {
+        height: 100%;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/*-----------------------------Animaciones------------------------------------*/
+/*----------------------------------------------------------------------------*/
+@keyframes aparece_desaparece {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscaminas</title>
+    <!-- CASCADE STYLES SHEET -->
+    <link rel="stylesheet" href="styles/index.css">
+    <!-- LINK DE ICONOS DE BOX-ICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="images/bomba.png" type="image/x-icon">
+    <!-- ACCIÓN POR DEFECTO CONTEXTMENU DESHABILITADA -->
+    <script>
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            return false;
+        });
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <!-- PANTALLA DERROTA -->
+        <div id="pantalla-final" class="invisible">
+            <h1>Has Perdido</h1>
+            <button onclick="document.location.reload()">Reiniciar</button>
+        </div>
+        <!-- CABECERA -->
+        <header>
+            <div class="box-icon">
+                <img src="images/bomba.png" alt="logo">
+            </div>
+            <h1>Buscaminas</h1>
+        </header>
+        <!-- MAIN CONTENT -->
+        <main>
+            <!-- INSTRUCCIONES -->
+            <article class="pantalla-intrucciones">
+                <section id="tiempo-de-partida" class="tiempo-de-partida">
+                    <i class="bx bx-time"></i>
+                </section>
+                <section id="intrucciones-de-partida" class="intrucciones-partida">
+                    <h1>Instrucciones</h1>
+                    <hr />
+                    <article>
+                        <p>El buscaminas es el juego cuyo objetivo es descubrir todas las minas sin pulsarlas</p>
+                        <fieldset>
+                            <legend>Modo de juego</legend>
+                            <ul>
+                                <li>Facil: 8 x 8 con 21 minas</li>
+                                <li>Intermedio: 16 x 16 con 132 minas</li>
+                                <li>Díficil: 20 x 20 con 230 minas</li>
+                            </ul>
+                            <p>El juego trata de pulsar una casilla que puede contener o el número de minas alrededor de
+                                esa casilla o una mina:</p>
+                            <p>Pulsar una bomba finalizará la partida con derrota</p>
+                            <p>Pulsar una casilla vacía descubrira todas las demás</p>
+                            <p>Ganarás solo si se descubre
+                                todo el tablero y el número de banderas puestas es igual que el numero de minas,
+                                ganarás
+                                la partida</p>
+                            </p>
+                        </fieldset>
+                    </article>
+                </section>
+            </article>
+            <!-- EL BUSCAMINAS -->
+            <article class="pantalla-buscaminas">
+                <!-- CONTADOR MINAS Y BANDERAS -->
+                <section id="buscaminas-header" class="buscaminas-header">
+                    <article id="banderas-puestas" class="banderas-puestas">
+                        <i class="bx bxs-flag-alt"></i>
+                    </article>
+                    <article id="bombas-restantes" class="bombas-restantes">
+                        <i class="bx bxs-bomb"></i>
+                    </article>
+                </section>
+                <!-- TABLERO BUSCAMINAS -->
+                <section id="container-buscaminas" class="container-buscaminas">
+                </section>
+            </article>
+        </main>
+    </div>
+    <!-- SCRIPT INICIALIZADOR DEL BUSCAMINAS-->
+    <!----------------------------------------------->
+    <!-- Importación de la clase Partida del archivo buscaminas -->
+    <!-- VENTAJAS: -->
+    <!-- ✅ Código mejor estructurado. -->
+    <!-- ✅ No es necesario importar un archivo entero. -->
+    <!-- ✅ Código mas legible. -->
+    <script type="module">
+        import { Partida } from "./js/buscaminas.js";
+        Partida.iniciarPartida();
+    </script>
+</body>
+
+</html>
